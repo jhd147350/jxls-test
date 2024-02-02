@@ -1,0 +1,23 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+java.sourceCompatibility=1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jxls:jxls:2.14.0"
+    implementation "org.jxls:jxls-poi:2.14.0"
+    implementation "ch.qos.logback:logback-classic:1.2.11"
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
