@@ -91,7 +91,10 @@ public class ExcelTest {
             InputStream is = ExcelTest.class.getClassLoader().getResourceAsStream(templateFileName);
             ByteArrayOutputStream os = new ByteArrayOutputStream();
             Context context = new Context(map);
-            JxlsHelper.getInstance().processTemplate(is, os, context);
+            //JxlsHelper.getInstance().processTemplate(is, os, context);
+            //换成自己改的transformer
+            PoiTransformerForQuickMerge transformer = PoiTransformerForQuickMerge.createTransformer(is, os);
+            JxlsHelper.getInstance().processTemplate(context, transformer);
             if (is != null) {
                 is.close();
             }
